@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f7f3" />
+    <title>Menu | Branch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="site-pages.css" />
+  </head>
+
+  <body class="profile-page menu-page">
+    <div class="announcement">
+      Thoughtfully designed furniture for better workdays.<a
+        href="index.html"
+        class="announcement-home"
+        >Shop Branch ↗</a
+      >
+    </div>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        >branch<span class="brand-dot">.</span></a
+      >
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a><a class="current" href="menu.html">Menu</a
+        ><a href="story.html">Our story</a
+        ><a href="index.html#spaces">Explore</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-page-link" href="order.html"
+          >Bag <span id="bag-count">0</span> ↗</a
+        >
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="page-hero">
+        <div>
+          <div class="eyebrow">EVERYTHING WE MAKE</div>
+          <h1>The Branch menu<span class="period">.</span></h1>
+          <p>
+            Chairs, desks and the small things that make a workday easier. Pick
+            what you like and add it to your bag.
+          </p>
+        </div>
+        <a class="button button-dark" href="order.html"
+          >Go to checkout <span>→</span></a
+        >
+      </section>
+
+      <section class="menu-controls" aria-label="Filter the menu">
+        <div class="menu-filters" role="group" aria-label="Category">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="Chairs">Chairs</button>
+          <button class="chip" data-filter="Desks">Desks</button>
+          <button class="chip" data-filter="Accessories">Accessories</button>
+          <button class="chip" data-filter="Storage">Storage</button>
+        </div>
+        <label class="menu-search">
+          <span class="visually-hidden">Search the menu</span>
+          <input
+            id="menu-search"
+            type="search"
+            placeholder="Search chairs, desks, stands…"
+          />
+        </label>
+      </section>
+
+      <p class="menu-count" id="menu-count" role="status"></p>
+      <div class="menu-grid" id="menu-grid"></div>
+
+      <div class="profile-card menu-none" id="menu-none" hidden>
+        <h3>Nothing matches that</h3>
+        <p>Try a different word, or clear the filter to see the whole menu.</p>
+        <button class="button button-outline" id="menu-reset" type="button">
+          Show everything
+        </button>
+      </div>
+    </main>
+
+    <div class="menu-toast" id="menu-toast" role="status"></div>
+
+    <footer class="mini-footer">
+      <span>© 2026 Branch Canada</span
+      ><a href="index.html#footer">Need help? Contact support</a
+      ><span>Made for better workdays. <b>✳</b></span>
+    </footer>
+    <script src="menu.js"></script>
+  </body>
+</html>

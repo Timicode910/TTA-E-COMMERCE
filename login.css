@@ -1,0 +1,414 @@
+/* ==========================================================
+   Branch · sign-in page
+   Load AFTER style.css and pages.css. Scoped to body.account-page.
+   Uses the same tokens as profile.css so the two pages match.
+   ========================================================== */
+
+.account-page {
+  --bg: #f8f7f3;
+  --surface: #ffffff;
+  --ink: #1c211d;
+  --ink-soft: #5b645d;
+  --line: #e3e0d6;
+  --moss: #2d4a3a;
+  --moss-deep: #203629;
+  --sage: #dde6dc;
+  --sage-soft: #eef2ec;
+  --focus: #3f7a5a;
+  --danger: #a33b2f;
+
+  --font-head: "Manrope", "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.account-page *,
+.account-page *::before,
+.account-page *::after { box-sizing: border-box; }
+
+.account-page a { color: inherit; text-decoration: none; }
+
+.account-page :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- announcement + header ---------- */
+
+.account-page .announcement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 20px;
+  background: var(--moss-deep);
+  color: #e9efe6;
+  font-size: 13.5px;
+  text-align: center;
+}
+.account-page .announcement-home {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.account-page .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px clamp(20px, 5vw, 56px);
+  background: rgba(248, 247, 243, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.account-page .brand {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.account-page .brand-dot { color: var(--focus); }
+
+.account-page .desktop-nav { display: flex; gap: 28px; }
+.account-page .desktop-nav a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+}
+.account-page .desktop-nav a:hover { color: var(--ink); border-color: var(--ink); }
+
+.account-page .account-page-link {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  transition: border-color .15s, background .15s;
+}
+.account-page .account-page-link:hover {
+  border-color: var(--moss);
+  background: var(--sage-soft);
+}
+
+/* ---------- split layout ---------- */
+
+.account-page .auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 5vw, 56px) 64px;
+  align-items: stretch;
+}
+
+/* ---------- image side: the one bold moment ---------- */
+
+.account-page .auth-visual {
+  position: relative;
+  min-height: 640px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--moss);
+  isolation: isolate;
+}
+.account-page .auth-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.account-page .auth-visual::after {
+  /* darkens the bottom so the caption always reads */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(20, 34, 26, 0.88) 0%, rgba(20, 34, 26, 0.45) 38%, rgba(20, 34, 26, 0) 65%);
+}
+
+.account-page .auth-image-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: clamp(24px, 4vw, 44px);
+  color: #fff;
+}
+.account-page .auth-image-caption .eyebrow { color: #c6d8c7; }
+.account-page .auth-image-caption h2 {
+  margin: 8px 0 12px;
+  font-family: var(--font-head);
+  font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  color: #fff;
+}
+.account-page .auth-image-caption .period { color: #9fd0a9; }
+.account-page .auth-image-caption p {
+  margin: 0;
+  color: #dbe6da;
+  font-size: 17px;
+}
+
+/* eyebrows: sentence case instead of tracked caps */
+.account-page .eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: lowercase;
+}
+.account-page .eyebrow::first-letter { text-transform: uppercase; }
+
+/* ---------- form side ---------- */
+
+.account-page .auth-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+.account-page .back-link {
+  align-self: flex-start;
+  margin-bottom: 36px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color .15s;
+}
+.account-page .back-link:hover { color: var(--ink); }
+
+.account-page .auth-panel h1 {
+  margin: 6px 0 12px;
+  font-family: var(--font-head);
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+.account-page .auth-panel .period { color: var(--focus); }
+
+.account-page .auth-intro {
+  margin: 0 0 30px;
+  max-width: 42ch;
+  color: var(--ink-soft);
+}
+
+/* ---------- form ---------- */
+
+.account-page .auth-form {
+  display: grid;
+  gap: 8px;
+}
+.account-page .auth-form label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.account-page .auth-form input[type="email"],
+.account-page .auth-form input[type="password"],
+.account-page .auth-form input[type="text"] {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  font: 400 16px var(--font-body);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.account-page .auth-form input::placeholder { color: #9aa29b; }
+.account-page .auth-form input:hover { border-color: #cfcbbd; }
+.account-page .auth-form input:focus {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 4px rgba(63, 122, 90, 0.18);
+}
+.account-page .auth-form input:user-invalid { border-color: var(--danger); }
+
+.account-page .label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.account-page .label-row a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--moss);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.account-page .label-row a:hover { color: var(--moss-deep); }
+
+/* password + show/hide */
+.account-page .password-field { position: relative; }
+.account-page .password-field input { padding-right: 76px; }
+.account-page .password-field #toggle-password {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  height: 38px;
+  padding: 0 14px;
+  font: 600 13.5px var(--font-body);
+  color: var(--moss);
+  background: var(--sage-soft);
+  border: 0;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.account-page .password-field #toggle-password:hover { background: var(--sage); }
+
+/* remember me */
+.account-page .auth-form .remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0 10px;
+  font-weight: 400;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.account-page .remember input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--moss);
+  cursor: pointer;
+}
+
+/* ---------- buttons ---------- */
+
+.account-page .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 24px;
+  height: 52px;
+  border-radius: 999px;
+  font: 600 16px var(--font-body);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s, transform .15s;
+}
+.account-page .button:active { transform: translateY(1px); }
+
+.account-page .button-dark { background: var(--moss); color: #fff; }
+.account-page .button-dark:hover { background: var(--moss-deep); }
+
+.account-page .button-outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.account-page .button-outline:hover { background: var(--ink); color: #fff; }
+
+.account-page .auth-submit { width: 100%; }
+.account-page .create-account { width: 100%; }
+
+/* status message from pages.js */
+.account-page .form-message {
+  margin: 4px 0 0;
+  min-height: 1.4em;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--moss);
+}
+.account-page .form-message.error { color: var(--danger); }
+
+/* ---------- divider + terms ---------- */
+
+.account-page .auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+.account-page .auth-divider::first-letter { text-transform: uppercase; }
+.account-page .auth-divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.account-page .auth-terms {
+  margin: 22px 0 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.account-page .auth-terms a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.account-page .auth-terms a:hover { color: var(--ink); }
+
+/* ---------- footer ---------- */
+
+.account-page .mini-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px clamp(20px, 5vw, 56px) 36px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.account-page .mini-footer a { text-decoration: underline; text-underline-offset: 3px; }
+.account-page .mini-footer a:hover { color: var(--ink); }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 960px) {
+  .account-page .auth-layout { grid-template-columns: 1fr; }
+  .account-page .auth-visual { min-height: 280px; order: -1; border-radius: 22px; }
+  .account-page .auth-image-caption p { display: none; }
+  .account-page .auth-image-caption h2 { font-size: clamp(26px, 6vw, 36px); margin-bottom: 0; }
+  .account-page .desktop-nav { display: none; }
+  .account-page .back-link { margin-bottom: 24px; }
+}
+
+@media (max-width: 560px) {
+  .account-page .announcement { flex-direction: column; gap: 2px; }
+  .account-page .auth-visual { min-height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-page * { transition: none !important; }
+}

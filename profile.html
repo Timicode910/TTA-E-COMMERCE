@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f3">
+  <title>My Profile | Branch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+
+<body class="profile-page">
+  <div class="announcement">Thoughtfully designed furniture for better workdays.<a href="index.html"
+      class="announcement-home">Shop Branch ↗</a></div>
+  <header class="site-header"><a class="brand" href="index.html">branch<span class="brand-dot">.</span></a>
+    <nav class="desktop-nav"><a href="index.html">Home</a><a href="index.html#shop">Shop</a><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="index.html#spaces">Explore</a></nav>
+    <div class="header-actions"><a class="account-page-link active" href="profile.html">My profile ↗</a></div>
+  </header>
+  <main class="profile-shell">
+    <aside class="profile-sidebar">
+      <div class="eyebrow">YOUR BRANCH ACCOUNT</div>
+      <div class="profile-avatar" id="avatar-initials">GU</div>
+      <h2 id="sidebar-name">Guest User</h2>
+      <p id="sidebar-email">Sign in to personalize your profile</p>
+      <nav class="profile-nav"><a class="active" href="#overview">◫ &nbsp; Overview</a><a href="#personal-details">♙
+          &nbsp; Personal details</a><a href="#orders">▤ &nbsp; Orders</a><a href="index.html#footer">? &nbsp; Help &
+          support</a></nav><button id="logout-button" class="logout-button">Sign out ↗</button>
+    </aside>
+    <section class="profile-content">
+      <div class="profile-welcome">
+        <div>
+          <div class="eyebrow">YOUR SPACE, YOUR WAY</div>
+          <h1>Good to see you<span class="period">.</span></h1>
+          <p>Manage your details and keep your workspace plans in one place.</p>
+        </div><a class="button button-dark" href="index.html#shop">Explore furniture <span>↗</span></a>
+      </div>
+      <div class="profile-stats">
+        <article><span>ACCOUNT STATUS</span><strong id="account-status">Guest</strong><small>Your Branch
+            membership</small></article>
+        <article><span>ORDERS</span><strong id="order-count">0</strong><small>Your order history</small></article>
+        <article><span>WISHLIST</span><strong>0 items</strong><small>Furniture you love</small></article>
+      </div>
+      <section class="profile-card" id="personal-details">
+        <div class="profile-card-heading">
+          <div>
+            <div class="eyebrow">ACCOUNT INFORMATION</div>
+            <h2>Personal details</h2>
+          </div><span class="edit-mark">✳</span>
+        </div>
+        <form id="profile-form" class="profile-form">
+          <div class="field-pair">
+            <div><label for="profile-first">First name</label><input id="profile-first" name="first" type="text"
+                placeholder="First name" required></div>
+            <div><label for="profile-last">Last name</label><input id="profile-last" name="last" type="text"
+                placeholder="Last name" required></div>
+          </div><label for="profile-email">Email address</label><input id="profile-email" name="email" type="email"
+            placeholder="you@example.com" required><label for="profile-phone">Phone number
+            <span>(optional)</span></label><input id="profile-phone" name="phone" type="tel"
+            placeholder="Add a phone number">
+          <div class="profile-form-actions">
+            <p id="profile-message" role="status"></p><button class="button button-dark" type="submit">Save changes
+              <span>→</span></button>
+          </div>
+        </form>
+      </section>
+      <section class="profile-card orders-card" id="orders">
+        <div class="profile-card-heading">
+          <div>
+            <div class="eyebrow">YOUR PURCHASES</div>
+            <h2>Recent orders</h2>
+          </div><a href="index.html#products">Shop furniture ↗</a>
+        </div>
+        <div class="empty-orders" id="empty-orders">
+          <div class="empty-orders-icon">□</div>
+          <h3>No orders yet</h3>
+          <p>Your next great workday starts with the right setup. Your purchases will appear here.</p><a
+            class="button button-outline" href="index.html#products">Explore bestsellers <span>↗</span></a>
+        </div>
+      </section>
+      <div class="profile-help"><span>Need a hand?</span>
+        <p>Our team is here to help with your order, setup, or workspace questions.</p><a href="index.html#footer">Visit
+          support ↗</a>
+      </div>
+    </section>
+  </main>
+  <footer class="mini-footer"><span>© 2026 Branch Canada</span><a href="index.html#footer">Need help? Contact
+      support</a><span>Made for better workdays. <b>✳</b></span></footer>
+  <script src="pages.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f3">
+  <title>Place your order | Branch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="order.css">
+</head>
+
+<body class="profile-page order-page">
+  <div class="announcement">Thoughtfully designed furniture for better workdays.<a href="index.html"
+      class="announcement-home">Shop Branch ↗</a></div>
+  <header class="site-header"><a class="brand" href="index.html">branch<span class="brand-dot">.</span></a>
+    <nav class="desktop-nav"><a href="index.html">Home</a><a href="index.html#shop">Shop</a><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="index.html#spaces">Explore</a></nav>
+    <div class="header-actions"><a class="account-page-link" href="profile.html">My profile ↗</a></div>
+  </header>
+
+  <main class="order-shell">
+    <div class="order-heading">
+      <div class="eyebrow">CHECKOUT</div>
+      <h1>Place your order<span class="period">.</span></h1>
+      <p>Review your bag, tell us where to send it, and we’ll take it from there.</p>
+    </div>
+
+    <!-- shown when the bag is empty -->
+    <section class="profile-card order-empty" id="order-empty" hidden>
+      <div class="empty-orders">
+        <div class="empty-orders-icon">□</div>
+        <h3>Your bag is empty</h3>
+        <p>Add something you like from the shop, then come back here to place your order.</p>
+        <a class="button button-outline" href="index.html#shop">Start shopping <span>↗</span></a>
+      </div>
+    </section>
+
+    <!-- shown after the order is saved -->
+    <section class="profile-card order-done" id="order-done" hidden>
+      <div class="order-done-mark">✓</div>
+      <div class="eyebrow">ORDER PLACED</div>
+      <h2>Thank you<span class="period">.</span></h2>
+      <p>Your order <strong id="done-id"></strong> is in. A confirmation will go to <strong id="done-email"></strong>.</p>
+      <div class="order-done-actions">
+        <a class="button button-dark" href="profile.html#orders">View my orders <span>→</span></a>
+        <a class="button button-outline" href="index.html#shop">Keep shopping <span>↗</span></a>
+      </div>
+    </section>
+
+    <div class="order-layout" id="order-layout" hidden>
+      <form id="order-form" class="profile-card profile-form order-form" novalidate>
+        <div class="profile-card-heading">
+          <div>
+            <div class="eyebrow">WHERE IT’S GOING</div>
+            <h2>Delivery details</h2>
+          </div>
+        </div>
+
+        <div class="field-pair">
+          <div><label for="order-first">First name</label><input id="order-first" name="first" type="text"
+              autocomplete="given-name" required></div>
+          <div><label for="order-last">Last name</label><input id="order-last" name="last" type="text"
+              autocomplete="family-name" required></div>
+        </div>
+        <div class="field-pair">
+          <div><label for="order-email">Email address</label><input id="order-email" name="email" type="email"
+              autocomplete="email" placeholder="you@example.com" required></div>
+          <div><label for="order-phone">Phone number</label><input id="order-phone" name="phone" type="tel"
+              autocomplete="tel" required></div>
+        </div>
+
+        <label for="order-address">Street address</label>
+        <input id="order-address" name="address" type="text" autocomplete="street-address" required>
+
+        <div class="field-trio">
+          <div><label for="order-city">City</label><input id="order-city" name="city" type="text"
+              autocomplete="address-level2" required></div>
+          <div><label for="order-region">Province / State</label><input id="order-region" name="region" type="text"
+              autocomplete="address-level1" required></div>
+          <div><label for="order-postal">Postal code</label><input id="order-postal" name="postal" type="text"
+              autocomplete="postal-code" required></div>
+        </div>
+
+        <fieldset class="delivery-options">
+          <legend>Delivery method</legend>
+          <label class="delivery-option">
+            <input type="radio" name="delivery" value="standard" data-fee="0" checked>
+            <span><b>Standard</b><small>5–7 business days</small></span><em>Free</em>
+          </label>
+          <label class="delivery-option">
+            <input type="radio" name="delivery" value="express" data-fee="29">
+            <span><b>Express</b><small>2–3 business days</small></span><em>$29</em>
+          </label>
+        </fieldset>
+
+        <label for="order-notes">Order notes <span>(optional)</span></label>
+        <textarea id="order-notes" name="notes" rows="3"
+          placeholder="Colour choices, building access, delivery instructions…"></textarea>
+
+        <div class="profile-form-actions">
+          <p id="order-message" role="status"></p>
+          <button class="button button-dark" type="submit" id="order-submit">Place order <span>→</span></button>
+        </div>
+      </form>
+
+      <aside class="profile-card order-summary" aria-label="Order summary">
+        <div class="eyebrow">YOUR BAG</div>
+        <h2>Order summary</h2>
+        <div id="order-items" class="order-items"></div>
+        <dl class="order-totals">
+          <div><dt>Subtotal</dt><dd id="sum-subtotal">$0</dd></div>
+          <div><dt>Delivery</dt><dd id="sum-delivery">Free</dd></div>
+          <div class="order-total"><dt>Total</dt><dd id="sum-total">$0</dd></div>
+        </dl>
+        <p class="order-note">Items marked “+” are shown at their starting price. No payment is taken in this demo.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="mini-footer"><span>© 2026 Branch Canada</span><a href="index.html#footer">Need help? Contact
+      support</a><span>Made for better workdays. <b>✳</b></span></footer>
+  <script src="pages.js"></script>
+  <script src="order.js"></script>
+</body>
+
+</html>

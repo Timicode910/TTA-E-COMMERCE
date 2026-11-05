@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f7f3" />
+    <title>Sign in | Branch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pages.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body class="account-page">
+    <div class="announcement">
+      Thoughtfully designed furniture for better workdays.<a
+        href="index.html"
+        class="announcement-home"
+        >Shop Branch ↗</a
+      >
+    </div>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        >branch<span class="brand-dot">.</span></a
+      >
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a><a href="index.html#shop">Shop</a
+        ><a href="menu.html">Menu</a><a href="story.html">Our story</a><a href="index.html#spaces">Explore</a>
+      </nav>
+      <div class="header-actions">
+        <a class="account-page-link" href="profile.html">My profile ↗</a>
+      </div>
+    </header>
+    <main class="auth-layout">
+      <section class="auth-visual">
+        <img
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=90"
+          alt="Calm, thoughtfully designed workspace"
+        />
+        <div class="auth-image-caption">
+          <span class="eyebrow">YOUR SPACE, YOUR WAY</span>
+          <h2>
+            A better workday<br />starts here<span class="period">.</span>
+          </h2>
+          <p>Thoughtful furniture. Everyday comfort.</p>
+        </div>
+      </section>
+      <section class="auth-panel">
+        <a href="index.html" class="back-link">← Back to home</a>
+        <div class="eyebrow">WELCOME BACK</div>
+        <h1>Sign in to Branch<span class="period">.</span></h1>
+        <p class="auth-intro">
+          Access your profile, keep track of your orders, and make your
+          workspace yours.
+        </p>
+        <form id="login-form" class="auth-form">
+          <label for="email">Email address</label
+          ><input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <div class="label-row">
+            <label for="password">Password</label
+            ><a href="#forgot" id="forgot-link">Forgot password?</a>
+          </div>
+          <div class="password-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              minlength="4"
+              required
+            /><button
+              type="button"
+              id="toggle-password"
+              aria-label="Show password"
+            >
+              Show
+            </button>
+          </div>
+          <label class="remember"
+            ><input type="checkbox" id="remember" />
+            <span>Keep me signed in on this device</span></label
+          ><button type="submit" class="button button-dark auth-submit">
+            Sign in <span>→</span>
+          </button>
+          <p class="form-message" id="login-message" role="status"></p>
+        </form>
+        <div class="auth-divider"><span></span>NEW TO BRANCH?<span></span></div>
+        <button
+          class="button button-outline create-account"
+          id="create-account"
+        >
+          Create an account
+        </button>
+        <p class="auth-terms">
+          By continuing, you agree to our
+          <a href="index.html#footer">Terms</a> and
+          <a href="index.html#footer">Privacy Policy</a>.
+        </p>
+      </section>
+    </main>
+    <footer class="mini-footer">
+      <span>© 2026 Branch Canada</span
+      ><a href="index.html#footer">Need help? Contact support</a
+      ><span>Made for better workdays. <b>✳</b></span>
+    </footer>
+    <script src="pages.js"></script>
+  </body>
+</html>
